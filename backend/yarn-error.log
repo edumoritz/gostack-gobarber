@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\eduar\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add tsconfig-path -D
+  C:\Program Files\nodejs\node.exe C:\Users\eduar\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add tsringe
 
 PATH: 
   C:\Developer\cmder\bin;C:\Developer\cmder\vendor\bin;C:\Developer\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Developer\cmder\vendor\conemu-maximus5;C:\Developer\cmder\vendor\conemu-maximus5\ConEmu;C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Developer\Android\Sdk\emulator;C:\Developer\Android\Sdk\tools;C:\Developer\Android\Sdk\tools\bin;C:\Developer\Android\Sdk\platform-tools;C:\Program Files\Dart\dart-sdk\bin;C:\Program Files\Git\cmd;C:\Users\eduar\AppData\Local\Microsoft\WindowsApps;C:\Users\eduar\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\eduar\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\Program Files\Docker Toolbox;C:\Users\eduar\AppData\Local\Yarn\bin;C:\tools\dart-sdk\bin;C:\Users\eduar\AppData\Roaming\Pub\Cache\bin;C:\Developer\Android\flutter\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Developer\cmder;C:\Developer\cmder\vendor\git-for-windows\cmd;C:\Developer\cmder\vendor\git-for-windows\mingw64\bin;C:\Developer\cmder\vendor\git-for-windows\usr\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/tsconfig-path: Not found
+  Error: https://registry.yarnpkg.com/tsringe: Not found
       at Request.params.callback [as _callback] (C:\Users\eduar\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66987:18)
       at Request.self.callback (C:\Users\eduar\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140748:22)
       at Request.emit (events.js:223:5)
@@ -34,9 +34,9 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "build": "tsc",
-      "dev:server": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/shared/infra/http/server.ts",
+      "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpileOnly --ignore-watch node_modules src/shared/infra/http/server.ts",
       "start": "ts-node src/shared/infra/http/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
     },
     "dependencies": {
       "bcryptjs": "^2.4.3",
@@ -67,6 +67,7 @@ npm manifest:
       "eslint-plugin-prettier": "^3.1.4",
       "prettier": "^2.0.5",
       "ts-node-dev": "^1.0.0-pre.49",
+      "tsconfig-paths": "^3.9.0",
       "typescript": "^3.9.5"
     }
   }
