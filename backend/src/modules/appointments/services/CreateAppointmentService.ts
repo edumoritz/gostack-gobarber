@@ -14,7 +14,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateAppointmentService {
+class CreateAppointmentService {  
   constructor(    
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
@@ -24,7 +24,7 @@ class CreateAppointmentService {
   ) {}
 
   public async execute({ provider_id, user_id, date }: IRequest): Promise<Appointment> {
-    console.log('CreateAppointmentService')
+
     const appointmentDate = startOfHour(date);
    
     if(isBefore(appointmentDate, Date.now())) {

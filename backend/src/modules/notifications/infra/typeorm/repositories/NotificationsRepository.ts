@@ -8,7 +8,6 @@ class NotificationRepository implements INotificationsRepository {
   private ormRepository: MongoRepository<Notification>;
 
   constructor() {    
-    console.log("NotificationRepository")
     this.ormRepository = getMongoRepository(Notification, 'mongo');
   }
 
@@ -20,9 +19,6 @@ class NotificationRepository implements INotificationsRepository {
       content,
       recipient_id,
     });
-
-    console.log("NotificationRepository")
-
     await this.ormRepository.save(notification);
 
     return notification;
