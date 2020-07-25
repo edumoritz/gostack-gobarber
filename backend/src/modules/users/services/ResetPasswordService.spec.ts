@@ -1,7 +1,6 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
-import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
 import FakeUserTokensRepository from '../repositories/fakes/FakeUserTokenRepository';
 import ResetPasswordService from './ResetPasswordService';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
@@ -16,14 +15,14 @@ describe('ResetPasswordService', () => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeUserTokensRepository = new FakeUserTokensRepository();
     fakeHashProvider = new FakeHashProvider();
-    
+
     resetPassword = new ResetPasswordService(
       fakeUsersRepository,
       fakeUserTokensRepository,
       fakeHashProvider
     );
   })
-  it('should be able to reset the password', async () => {    
+  it('should be able to reset the password', async () => {
 
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
@@ -66,7 +65,7 @@ describe('ResetPasswordService', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('should not be able to reset password if passed more than 2 hours', async () => {    
+  it('should not be able to reset password if passed more than 2 hours', async () => {
 
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
