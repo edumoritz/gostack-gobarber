@@ -20,7 +20,7 @@ class ListProviderDayAvailabilityService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
-  ) {}
+  ) { }
 
   public async execute({ provider_id, year, month, day }: IRequest): Promise<IResponse> {
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider({
@@ -38,13 +38,12 @@ class ListProviderDayAvailabilityService {
     );
 
     const currentDate = new Date(Date.now());
-    
+
     const availability = eachHourArray.map(hour => {
-      const hasAppointmentInHour = appointments.find(appointment => 
+      const hasAppointmentInHour = appointments.find(appointment =>
         getHours(appointment.date) === hour,
       );
 
-      
       const compareDate = new Date(year, month - 1, day, hour);
 
       return {
@@ -53,7 +52,7 @@ class ListProviderDayAvailabilityService {
       }
     });
 
-    return availability;   
+    return availability;
   }
 }
 
