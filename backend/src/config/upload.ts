@@ -25,7 +25,7 @@ interface IUpladConfig {
 export default {
   driver: process.env.STORAGE_DRIVER,
 
-  tmpFolder: tmpFolder,
+  tmpFolder,
   uploadsFolder: path.resolve(tmpFolder, 'uploads'),
 
   multer: {
@@ -34,7 +34,7 @@ export default {
       filename(request, file, callback) {
         const fileHash = crypto.randomBytes(10).toString('hex');
         const fileName = `${fileHash}-${file.originalname}`;
-  
+
         return callback(null, fileName);
       },
     }),
