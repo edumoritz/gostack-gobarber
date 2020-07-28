@@ -65,7 +65,7 @@ export const AnimationContainer = styled.div`
     display: block;
     margin-top: 24px;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s;
 
     display: flex;
     align-items: center;

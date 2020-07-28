@@ -10,13 +10,13 @@ export default createGlobalStyle`
 
   body {
     background: #312E38;
-    color: #FFF;
+    color: #f4ede8;
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button {
     font-family: 'Roboto Slab', serif;
-    font-size: 16;
+    font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
